@@ -1,12 +1,13 @@
 {
   "name": "ionos-dns-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "bin": {
-    "ionosdns": "./dist/cli.js"
+    "ionosdns": "./dist/cli.js",
+    "ionosdns-mcp": "./dist/mcp.js"
   },
   "scripts": {
-    "build": "esbuild src/cli.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/cli.js && esbuild src/index.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/index.js && tsc --emitDeclarationOnly --declaration --outDir dist && chmod +x dist/cli.js",
+    "build": "esbuild src/cli.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/cli.js && esbuild src/index.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/index.js && esbuild src/mcp.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/mcp.js && tsc --emitDeclarationOnly --declaration --outDir dist && chmod +x dist/cli.js dist/mcp.js",
     "start": "node dist/cli.js",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -15,11 +16,12 @@
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
+    "esbuild": "^0.21.5",
     "typescript": "^5.0.0",
-    "vitest": "^1.0.0",
-    "esbuild": "^0.21.5"
+    "vitest": "^1.0.0"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "commander": "^13.0.0",
     "zod": "^3.23.0"
   },

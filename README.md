@@ -21,6 +21,7 @@
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Use as a Library](#use-as-a-library)
+- [MCP Server](#mcp-server)
 - [Running the Tests](#running-the-tests)
 - [Built Using](#built-using)
 - [Roadmap](ROADMAP.md)
@@ -156,6 +157,35 @@ const zone = await dns.getZone(zones[0].id);
 
 Exports: `DnsService`, `DomainsService`, `IonosHttpClient`, `loadConfig`, and the
 error types (`IonosError`, `NetworkError`, `RateLimitError`, `ValidationError`).
+
+## MCP Server
+
+Manage DNS by talking to an LLM. The package ships a second binary,
+`ionosdns-mcp`, that speaks the [Model Context Protocol](https://modelcontextprotocol.io/)
+over stdio — point any MCP client (e.g. Claude Desktop) at it.
+
+Tools: `list_zones`, `get_zone`, `find_zone`, `get_record`, `create_records`,
+`update_record`, `delete_record`, `list_domains`, `get_domain`, `list_tlds`,
+`explore`. Read tools are flagged read-only; `delete_record` is flagged destructive,
+so clients can gate it.
+
+Example Claude Desktop config (`claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "ionosdns": {
+      "command": "ionosdns-mcp",
+      "env": {
+        "IONOS_API_PREFIX": "your-prefix",
+        "IONOS_API_SECRET": "your-secret"
+      }
+    }
+  }
+}
+```
+
+Auth is the same as the CLI (`IONOS_API_*`), read from the server's environment.
 
 ## Running the Tests
 

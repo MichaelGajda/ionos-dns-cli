@@ -7,8 +7,20 @@ command surface, the piped-JSON output, and the library exports become a promise
 
 ## [Unreleased]
 
-_Next stop: an MCP server, so an LLM can manage your DNS while you do literally
-anything else. See the [roadmap](ROADMAP.md)._
+_Toward 1.0: publish to npm and freeze the contract. See the [roadmap](ROADMAP.md)._
+
+## [0.2.0] — 2026-07-07
+
+Now with more robots. Same DNS, now talkable-to by an LLM.
+
+### Added
+
+- **MCP server** — a second binary, `ionosdns-mcp`, exposing the DNS/domains
+  capabilities as [Model Context Protocol](https://modelcontextprotocol.io/)
+  tools over stdio, so an MCP client (Claude Desktop, etc.) can manage DNS
+  conversationally. 11 tools; read tools flagged read-only, `delete_record`
+  flagged destructive. Same `IONOS_API_*` auth as the CLI.
+- `package-lock.json` committed for reproducible installs and CI.
 
 ## [0.1.0] — 2026-07-07
 
@@ -26,5 +38,6 @@ The first one. It works, it's typed, it's tested, and it doesn't pretend to be o
 - 46 unit tests; CI on Node 18 / 20 / 22.
 - esbuild bundle so the CLI runs on plain Node ≥ 18, no bundler gymnastics required.
 
-[Unreleased]: https://github.com/MichaelGajda/ionos-dns-cli/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/MichaelGajda/ionos-dns-cli/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/MichaelGajda/ionos-dns-cli/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/MichaelGajda/ionos-dns-cli/releases/tag/v0.1.0
