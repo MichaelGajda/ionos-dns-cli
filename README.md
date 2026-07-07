@@ -24,6 +24,7 @@
 - [Running the Tests](#running-the-tests)
 - [Built Using](#built-using)
 - [Roadmap](ROADMAP.md)
+- [Changelog](CHANGELOG.md)
 - [Authors](#authors)
 
 ## About

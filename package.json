@@ -10,7 +10,8 @@
     "start": "node dist/cli.js",
     "test": "vitest run",
     "test:watch": "vitest",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
@@ -46,6 +47,7 @@
     "dist",
     "README.md",
     "LICENSE",
+    "CHANGELOG.md",
     ".env.example"
   ]
 }
