@@ -1,0 +1,51 @@
+{
+  "name": "ionos-dns-cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "ionos": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "esbuild src/cli.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/cli.js && esbuild src/index.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/index.js && tsc --emitDeclarationOnly --declaration --outDir dist && chmod +x dist/cli.js",
+    "start": "node dist/cli.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
+    "esbuild": "^0.21.5"
+  },
+  "dependencies": {
+    "commander": "^13.0.0",
+    "zod": "^3.23.0"
+  },
+  "description": "Command-line client and TypeScript library for the IONOS Hosting API — DNS zones, records, and domains.",
+  "license": "MIT",
+  "author": "Michael Gajda",
+  "keywords": [
+    "ionos",
+    "dns",
+    "cli",
+    "domains",
+    "hosting",
+    "api",
+    "nameserver"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelGajda/ionos-dns-cli.git"
+  },
+  "homepage": "https://github.com/MichaelGajda/ionos-dns-cli#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ]
+}
