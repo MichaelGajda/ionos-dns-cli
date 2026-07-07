@@ -8,7 +8,7 @@ import { IonosError, NetworkError, RateLimitError } from './errors';
 const program = new Command();
 
 program
-  .name('ionos')
+  .name('ionosdns')
   .description('IONOS Hosting API CLI — DNS zones, records, and domains')
   .version('0.1.0');
 

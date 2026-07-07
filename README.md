@@ -55,7 +55,7 @@ git clone https://github.com/MichaelGajda/ionos-dns-cli.git
 cd ionos-dns-cli
 npm install
 npm run build
-npm link        # optional: puts `ionos` on your PATH
+npm link        # optional: puts `ionosdns` on your PATH
 ```
 
 Without `npm link`, run it as `node dist/cli.js <command>`.
@@ -80,34 +80,34 @@ node --env-file=.env dist/cli.js zones list
 ### Verify
 
 ```bash
-ionos --version
-ionos zones list
+ionosdns --version
+ionosdns zones list
 ```
 
 ## Usage
 
 ```bash
 # DNS zones
-ionos zones list                          # all zones
-ionos zones find example.com              # look up a zone by domain
-ionos zones get <zoneId>                  # zone details incl. records
-ionos zones get <zoneId> --type A,MX      # filter records by type
+ionosdns zones list                          # all zones
+ionosdns zones find example.com              # look up a zone by domain
+ionosdns zones get <zoneId>                  # zone details incl. records
+ionosdns zones get <zoneId> --type A,MX      # filter records by type
 
 # DNS records
-ionos records get    <zoneId> <recordId>
-ionos records create <zoneId> --help      # A/AAAA/CNAME/MX/TXT/... records
-ionos records update <zoneId> <recordId> --ttl 3600
-ionos records delete <zoneId> <recordId>
+ionosdns records get    <zoneId> <recordId>
+ionosdns records create <zoneId> --help      # A/AAAA/CNAME/MX/TXT/... records
+ionosdns records update <zoneId> <recordId> --ttl 3600
+ionosdns records delete <zoneId> <recordId>
 
 # Domains
-ionos domains list
-ionos domains get <domainId>
-ionos domains nameservers <domainId>
-ionos domains contacts <domainId>
-ionos domains tlds                        # supported TLDs
-ionos domains tld-info <tld>              # capabilities of one TLD
-ionos domains transfers                   # running transfers
-ionos domains explore <path>              # raw API path, for discovery
+ionosdns domains list
+ionosdns domains get <domainId>
+ionosdns domains nameservers <domainId>
+ionosdns domains contacts <domainId>
+ionosdns domains tlds                        # supported TLDs
+ionosdns domains tld-info <tld>              # capabilities of one TLD
+ionosdns domains transfers                   # running transfers
+ionosdns domains explore <path>              # raw API path, for discovery
 ```
 
 Run any command with `--help` for its options.
@@ -137,8 +137,8 @@ Records (4):
 **Piped** — same command, JSON out, straight into `jq`:
 
 ```bash
-ionos zones list | jq '.[] | select(.type == "NATIVE") | .name'
-ionos zones get <zoneId> | jq '.records[] | select(.type == "MX")'
+ionosdns zones list | jq '.[] | select(.type == "NATIVE") | .name'
+ionosdns zones get <zoneId> | jq '.records[] | select(.type == "MX")'
 ```
 
 ## Use as a Library
