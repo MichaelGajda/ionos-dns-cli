@@ -3,8 +3,8 @@
   "version": "0.2.0",
   "type": "module",
   "bin": {
-    "ionosdns": "./dist/cli.js",
-    "ionosdns-mcp": "./dist/mcp.js"
+    "ionosdns": "dist/cli.js",
+    "ionosdns-mcp": "dist/mcp.js"
   },
   "scripts": {
     "build": "esbuild src/cli.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/cli.js && esbuild src/index.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/index.js && esbuild src/mcp.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/mcp.js && tsc --emitDeclarationOnly --declaration --outDir dist && chmod +x dist/cli.js dist/mcp.js",
