@@ -4,13 +4,14 @@ import { registerZoneCommands } from './commands/zones';
 import { registerRecordCommands } from './commands/records';
 import { registerDomainCommands } from './commands/domains';
 import { IonosError, NetworkError, RateLimitError } from './errors';
+import { VERSION } from './version';
 
 const program = new Command();
 
 program
   .name('ionosdns')
   .description('IONOS Hosting API CLI — DNS zones, records, and domains')
-  .version('0.1.0');
+  .version(VERSION);
 
 registerZoneCommands(program);
 registerRecordCommands(program);

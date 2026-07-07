@@ -15,3 +15,4 @@ export { loadConfig, getConfig, type IonosConfig } from './config';
 export { IonosError, NetworkError, RateLimitError, ValidationError } from './errors';
 export * from './types/dns';
 export * from './types/domains';
+export { VERSION } from './version';

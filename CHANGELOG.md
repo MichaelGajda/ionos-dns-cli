@@ -9,6 +9,15 @@ command surface, the piped-JSON output, and the library exports become a promise
 
 _Toward 1.0: publish to npm and freeze the contract. See the [roadmap](ROADMAP.md)._
 
+## [0.2.1] — 2026-07-07
+
+### Fixed
+
+- `--version` reported `0.1.0` while the package was `0.2.0` — a hardcoded string
+  that drifted. The version now lives in one place (`src/version.ts`), shared by
+  the CLI and the MCP server, and a test fails CI if it ever disagrees with
+  `package.json` again.
+
 ## [0.2.0] — 2026-07-07
 
 Now with more robots. Same DNS, now talkable-to by an LLM.
@@ -38,6 +47,7 @@ The first one. It works, it's typed, it's tested, and it doesn't pretend to be o
 - 46 unit tests; CI on Node 18 / 20 / 22.
 - esbuild bundle so the CLI runs on plain Node ≥ 18, no bundler gymnastics required.
 
-[Unreleased]: https://github.com/MichaelGajda/ionos-dns-cli/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/MichaelGajda/ionos-dns-cli/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/MichaelGajda/ionos-dns-cli/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/MichaelGajda/ionos-dns-cli/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/MichaelGajda/ionos-dns-cli/releases/tag/v0.1.0

@@ -14,6 +14,7 @@ import { DnsService } from './services/dns';
 import { DomainsService } from './services/domains';
 import { RecordInputSchema } from './schemas/dns';
 import { IonosError } from './errors';
+import { VERSION } from './version';
 
 // Lazy so the server starts (and can list its tools) even without credentials;
 // only an actual API call needs them.
@@ -48,7 +49,7 @@ const run = async (fn: () => Promise<unknown>): Promise<Result> => {
   }
 };
 
-const server = new McpServer({ name: 'ionosdns', version: '0.2.0' });
+const server = new McpServer({ name: 'ionosdns', version: VERSION });
 
 // --- DNS: read ---
 
